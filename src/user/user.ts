@@ -34,24 +34,25 @@ export default class User {
         return this.docs;
     }
 
-    public addDocument(name: string): void {
+    public addDocument(name: string): Document {
         const doc: Document = new Document(name, this.id);
         this.docs.push(doc);
+        return doc;
     }
 
-    public grantEditAccess(ownerId: number, userId: number, docId: number): void {
+    public grantEditAccess(userId: number, docId: number): void {
         this.docs.forEach(doc => {
             if (doc.getId() === docId) {
-                doc.grantAccess(ownerId, userId, AccessLevels.EDITOR);
+                doc.grantAccess(this.id, userId, AccessLevels.EDITOR);
             }
-        })
+        });
     }
 
-    public grantReadAccess(ownerId: number, userId: number, docId: number): void {
+    public grantReadAccess(userId: number, docId: number): void {
         this.docs.forEach(doc => {
             if (doc.getId() === docId) {
-                doc.grantAccess(ownerId, userId, AccessLevels.READER);
+                doc.grantAccess(this.id, userId, AccessLevels.READER);
             }
-        })
+        });
     }
 }
