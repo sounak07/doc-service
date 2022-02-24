@@ -7,7 +7,7 @@ export class Document {
 
     public userAccessList: Map<number, AccessLevels> = new Map();
 
-    public static totalDocs: number = 0;
+    public static totalDocs = 0;
 
     constructor(name: string, userId: number) {
         Document.totalDocs++;

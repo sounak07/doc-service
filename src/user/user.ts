@@ -6,7 +6,7 @@ export default class User {
     private id: number;
     private docs: Document[] = [];
 
-    public static userCount: number = 0;
+    public static userCount = 0;
 
     constructor(name: string) {
         User.userCount++;

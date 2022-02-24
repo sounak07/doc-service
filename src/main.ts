@@ -1,4 +1,5 @@
 // TODO : Get all docs user has access including docs which they have read/edit access
+// TODO : Implement Interface segregation
 
 
 import User from "./user/user";
